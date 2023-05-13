@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static CollectSkull;
 using static SageScript;
+using static npcDialogue;
 
 
 public class DialogueManager : MonoBehaviour
@@ -73,6 +74,10 @@ public class DialogueManager : MonoBehaviour
 		if (getkeys != true)
         {
 			Invoke("getkeystrue", 2f);
+        }
+		if (cattalk == true)
+        {
+			cattalk = false;
         }
 	}
 	void getkeystrue()
