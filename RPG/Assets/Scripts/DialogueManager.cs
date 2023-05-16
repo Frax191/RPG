@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using static CollectSkull;
 using static SageScript;
 using static npcDialogue;
+using static HeartsCounter;
 
 
 public class DialogueManager : MonoBehaviour
@@ -22,6 +23,18 @@ public class DialogueManager : MonoBehaviour
 	{
 		sentences = new Queue<string>();
 	}
+	void Update()
+    {
+		if (animator.GetBool("IsOpen") == true) 
+
+		{
+			if (Input.GetKeyDown(KeyCode.Space))
+            {
+				DisplayNextSentence();
+            }
+
+		}
+    }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
@@ -62,7 +75,7 @@ public class DialogueManager : MonoBehaviour
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			yield return new WaitForSeconds(3f / 60f);
+			yield return new WaitForSeconds(2f / 60f);
 		}
 	}
 
@@ -71,10 +84,15 @@ public class DialogueManager : MonoBehaviour
 		animator.SetBool("IsOpen", false);
 		MovementScript movementScript = player.GetComponent<MovementScript>();
 		movementScript.enabled = true;
-		if (getkeys != true)
+		if (getkeys != true && cattalk != true)
         {
 			Invoke("getkeystrue", 2f);
         }
+		if (cattalk == false && skulls == true && hearts == 0)
+		{
+			hearts += 10;
+			obtainheart = true;
+		}
 		if (cattalk == true)
         {
 			cattalk = false;

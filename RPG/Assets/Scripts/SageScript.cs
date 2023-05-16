@@ -6,8 +6,10 @@ public class SageScript : MonoBehaviour
 {
     public GameObject player;
     public static bool getkeys;
+    public static bool obtainheart;
     void Start()
     {
+        obtainheart = false;
         getkeys = false;
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,5 +21,6 @@ public class SageScript : MonoBehaviour
             MovementScript movementScript = player.GetComponent<MovementScript>();
             movementScript.enabled = false;
         }
+
     }
 }
