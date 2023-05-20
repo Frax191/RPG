@@ -614,6 +614,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 229919458}
     m_Modifications:
+    - target: {fileID: 9032015047030520458, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520458, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520458, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520458, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6132076
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520459, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520459, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520459, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520459, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520459, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: NextScene, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9032015047030520468, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -649,6 +685,14 @@ PrefabInstance:
     - target: {fileID: 9032015047030520468, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520468, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032015047030520468, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9032015047030520468, guid: c92617308533d504a8b1de6c1131c1d6, type: 3}
       propertyPath: m_LocalPosition.x

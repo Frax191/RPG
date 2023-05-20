@@ -8,6 +8,10 @@ public class HeartsCounter : MonoBehaviour
 {
     public static int hearts;
     public TextMeshProUGUI heartcounter;
+    void Start()
+    {
+        hearts = 200;
+    }
     void Update()
     {
         heartcounter.text = "" + hearts;

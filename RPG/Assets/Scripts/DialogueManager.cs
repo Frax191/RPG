@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour
 	public Text dialogueText;
 	public AudioSource dooropening;
 	public Animator animator;
+	public AudioSource click;
+	public AudioSource text;
 
 	private Queue<string> sentences;
 
@@ -64,6 +66,7 @@ public class DialogueManager : MonoBehaviour
 			return;
 		}
 
+		click.Play();
 		string sentence = sentences.Dequeue();
 		StopAllCoroutines();
 		StartCoroutine(TypeSentence(sentence));
@@ -75,6 +78,7 @@ public class DialogueManager : MonoBehaviour
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
+			text.Play();
 			yield return new WaitForSeconds(2f / 60f);
 		}
 	}
