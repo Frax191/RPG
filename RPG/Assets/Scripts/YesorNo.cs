@@ -19,7 +19,7 @@ public class YesorNo : MonoBehaviour
         click.Play();
         if (door1 == true)
         {
-            player.transform.position = new Vector2(-3.5f, 9.5f);
+            player.transform.position = new Vector2(-90f, -57f);
             animator.SetBool("DoorOpen", false);
             animator2.SetBool("DifficultyShow", false);
             MovementScript movementScript = player.GetComponent<MovementScript>();

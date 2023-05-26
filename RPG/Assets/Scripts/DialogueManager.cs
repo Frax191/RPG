@@ -6,6 +6,7 @@ using static CollectSkull;
 using static SageScript;
 using static npcDialogue;
 using static HeartsCounter;
+using static EnemyTrigger;
 
 
 public class DialogueManager : MonoBehaviour
@@ -17,6 +18,10 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
 	public AudioSource click;
 	public AudioSource text;
+	public AudioSource bossmusic;
+	private bool playmusic;
+	private bool active;
+	public static bool StopTriggerEnemy;
 
 	private Queue<string> sentences;
 
@@ -24,22 +29,24 @@ public class DialogueManager : MonoBehaviour
 	void Start()
 	{
 		sentences = new Queue<string>();
+		playmusic = true;
+		StopTriggerEnemy = false;
+        
 	}
-	void Update()
+    void Update()
     {
-		if (animator.GetBool("IsOpen") == true) 
-
-		{
-			if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
+        {
+			if (animator.GetBool("IsOpen") == true)
             {
 				DisplayNextSentence();
-            }
-
-		}
+			}
+        }
     }
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+		playmusic = true;
 		animator.SetBool("IsOpen", true);
 
 		nameText.text = dialogue.name;
@@ -78,7 +85,10 @@ public class DialogueManager : MonoBehaviour
 		foreach (char letter in sentence.ToCharArray())
 		{
 			dialogueText.text += letter;
-			text.Play();
+			if (playmusic == true)
+            {
+				text.Play();
+			}
 			yield return new WaitForSeconds(2f / 60f);
 		}
 	}
@@ -86,6 +96,7 @@ public class DialogueManager : MonoBehaviour
 	void EndDialogue()
 	{
 		animator.SetBool("IsOpen", false);
+		playmusic = false;
 		MovementScript movementScript = player.GetComponent<MovementScript>();
 		movementScript.enabled = true;
 		if (getkeys != true && cattalk != true)
@@ -100,6 +111,13 @@ public class DialogueManager : MonoBehaviour
 		if (cattalk == true)
         {
 			cattalk = false;
+        }
+		if (StopTriggerEnemy == false && TriggerTriggerEnemy == true)
+        {
+			StopTriggerEnemy = true;
+			TriggerEnemy = true;
+			TriggerTriggerEnemy = false;
+			bossmusic.Play();
         }
 	}
 	void getkeystrue()

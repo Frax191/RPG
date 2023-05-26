@@ -15,7 +15,7 @@ public class CloseDifficulty : MonoBehaviour
     public GameObject player;
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && animator.GetBool("DifficultyShow") == true)
         {
             // Triggered when the Escape key is pressed
             ExitDifficulty();

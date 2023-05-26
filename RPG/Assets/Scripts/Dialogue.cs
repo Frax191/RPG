@@ -4,6 +4,7 @@ using UnityEngine;
 using static CollectSkull;
 using static npcDialogue;
 using static SageScript;
+using static EnemyTrigger;
 
 
 [System.Serializable]
@@ -16,6 +17,7 @@ public class Dialogue
     public string[] sentences = { "Welcome, traveler to the depths of mystery and wonder.", "Fear not, for I can offer guidance in these treacherous halls", "Bring me a skull from the magazine behind you and you'll be rewarded with 10 monster hearts" };
     private string[] sentences2 = { "miau" };
     private string[] sentences3 = { "Continue on with your adventure" };
+    private string[] sentences4 = { "I have witnessed struggles etched upon thy face, traveler", "I may offer you respite from this battle if you so desire"};
     public void SentencesUpdate()
     {
         if (cattalk == true)
@@ -26,9 +28,13 @@ public class Dialogue
         {
             sentences = sentences1;
         }
-        if (cattalk != true && obtainheart == true)
+        if (cattalk != true && obtainheart == true && TriggerTriggerEnemy != true)
         {
             sentences = sentences3;
+        }
+        if (TriggerTriggerEnemy == true)
+        {
+            sentences = sentences4;
         }
     }
 }
