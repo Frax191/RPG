@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
         {
 			Invoke("getkeystrue", 2f);
         }
-		if (cattalk == false && skulls == true && hearts == 0)
+		if (cattalk == false && skulls == true)
 		{
 			hearts += 10;
 			obtainheart = true;

@@ -8,9 +8,11 @@ public class SimpleAI : MonoBehaviour
 {
     [SerializeField] Transform target;
     NavMeshAgent agent;
+    private bool triggered;
 
     void Start()
     {
+        triggered = false;
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -21,10 +23,17 @@ public class SimpleAI : MonoBehaviour
         // goes after the player
         agent.SetDestination(target.position);
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
+        {
+            return;
+        }
+        triggered = true;
+    }
     void Update()
     {
-        // checks if the enemy should start chasing the player
-        if (TriggerEnemy == true)
+        if (triggered == true)
         {
             StartChase();
         }

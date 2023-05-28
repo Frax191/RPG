@@ -5,14 +5,18 @@ public class ShootingScript : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletSpeed = 10f;
     public float shootCooldown = 0.5f;
+    public AudioSource Shooting;
+    public Animator Anim1;
+    public Animator Anim2;
 
     private float nextShootTime;
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= nextShootTime)
+        if (Input.GetMouseButton(0) && Time.time >= nextShootTime && Anim1.GetBool("IsOpen") == false && Anim2.GetBool("DifficultyShow") == false)
         {
             Shoot();
+            Shooting.Play();
             nextShootTime = Time.time + shootCooldown;
         }
     }

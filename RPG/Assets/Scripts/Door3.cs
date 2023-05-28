@@ -19,6 +19,8 @@ public class Door3 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Bullet"))
+            return;
         door1 = false;
         door2 = false;
         door3 = false;
