@@ -5,18 +5,28 @@ using static Base_stats;
 
 public class Combat : MonoBehaviour
 {
+    public static bool died;
     private int Health;
     private int Attack;
-    void Start()
+    private MusicPlayer musicPlayer;
+    public GameObject musicPlayerObject; // Declare the musicPlayerObject variable
+    public Combat_Boss combatBossScript;
+
+    public void Start()
     {
+        died = false;
         Stats();
+        musicPlayer = musicPlayerObject.GetComponent<MusicPlayer>();
+        AudioSource bossmusic = combatBossScript.bossmusic;
     }
+
     void Stats()
     {
         Health = P_HP;
         Attack = P_ATK;
     }
-    void OnCollisionEnter2D(Collision2D collision)
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -24,15 +34,17 @@ public class Combat : MonoBehaviour
             if (Health <= 0)
             {
                 Health = P_HP;
+                died = true;
                 transform.position = new Vector2(0, 1);
             }
         }
         else if (collision.gameObject.CompareTag("Boss"))
         {
-            Attack -= B_ATK;
+            Health -= B_ATK;
             if (Health <= 0)
             {
                 Health = P_HP;
+                died = true;
                 transform.position = new Vector2(0, 1);
             }
         }

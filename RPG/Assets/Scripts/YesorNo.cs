@@ -14,6 +14,13 @@ public class YesorNo : MonoBehaviour
     public Animator animator2;
     public GameObject player;
     public AudioSource click;
+    public EnemySpawner enemySpawner;
+    public BossSpawner bossSpawner;
+    public void Start()
+    {
+        enemySpawner = GameObject.FindObjectOfType<EnemySpawner>();
+        bossSpawner = GameObject.FindObjectOfType<BossSpawner>();
+    }
     public void Yes()
     {
         click.Play();
@@ -25,6 +32,8 @@ public class YesorNo : MonoBehaviour
             MovementScript movementScript = player.GetComponent<MovementScript>();
             movementScript.enabled = true;
             door1 = false;
+            enemySpawner.SpawnEnemies();
+            bossSpawner.SpawnEnemy();
         }
         if (door2 == true)
         {

@@ -1,6 +1,5 @@
 using UnityEngine;
 using static DialogueManager;
-using static EnemyTrigger;
 
 public class MusicPlayer : MonoBehaviour
 {

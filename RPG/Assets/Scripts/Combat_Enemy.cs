@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Base_stats;
+using static HeartsCounter;
 
 public class Combat_Enemy : MonoBehaviour
 {
     private int Health;
     private int Attack;
     public AudioSource GetHit;
-    private bool triggered;
 
     void Start()
     {
         Stats();
     }
-    void Stats()
+    public void Stats()
     {
         Health = E_HP;
         Attack = E_ATK;
@@ -22,22 +22,16 @@ public class Combat_Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (triggered)
+        Health -= damage;
+        GetHit.Play();
+        if (Health <= 0)
         {
-            Health -= damage;
-            GetHit.Play();
-            if (Health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            hearts += 30 * B_HP_M;
+            Invoke("DestroyEnemy", .05f);
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    private void DestroyEnemy()
     {
-        if (other.CompareTag("Player"))
-        {
-            triggered = true;
-        }
+        Destroy(gameObject);
     }
 }

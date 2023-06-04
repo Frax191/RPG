@@ -6,7 +6,7 @@ using static CollectSkull;
 using static SageScript;
 using static npcDialogue;
 using static HeartsCounter;
-using static EnemyTrigger;
+using static Combat_Boss;
 
 
 public class DialogueManager : MonoBehaviour
@@ -18,10 +18,10 @@ public class DialogueManager : MonoBehaviour
 	public Animator animator;
 	public AudioSource click;
 	public AudioSource text;
-	public AudioSource bossmusic;
 	private bool playmusic;
 	private bool active;
 	public static bool StopTriggerEnemy;
+	public static bool triggershop;
 
 	private Queue<string> sentences;
 
@@ -103,7 +103,7 @@ public class DialogueManager : MonoBehaviour
         {
 			Invoke("getkeystrue", 2f);
         }
-		if (cattalk == false && skulls == true)
+		if (cattalk == false && skulls == true && obtainheart == false)
 		{
 			hearts += 10;
 			obtainheart = true;
@@ -112,18 +112,14 @@ public class DialogueManager : MonoBehaviour
         {
 			cattalk = false;
         }
-		if (StopTriggerEnemy == false && TriggerTriggerEnemy == true)
+		if (defeated == true & cattalk == false)
         {
-			StopTriggerEnemy = true;
-			TriggerEnemy = true;
-			TriggerTriggerEnemy = false;
-			bossmusic.Play();
+			triggershop = true;
         }
 	}
 	void getkeystrue()
-    {
+	{
 		getkeys = true;
 		dooropening.Play();
-    }
-
+	}
 }

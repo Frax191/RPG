@@ -8,12 +8,13 @@ public class ShootingScript : MonoBehaviour
     public AudioSource Shooting;
     public Animator Anim1;
     public Animator Anim2;
+    public Animator Anim3;
 
     private float nextShootTime;
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= nextShootTime && Anim1.GetBool("IsOpen") == false && Anim2.GetBool("DifficultyShow") == false)
+        if (Input.GetMouseButton(0) && Time.time >= nextShootTime && Anim1.GetBool("IsOpen") == false && Anim2.GetBool("DifficultyShow") == false && Anim3.GetBool("shop") == false)
         {
             Shoot();
             Shooting.Play();

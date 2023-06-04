@@ -16,14 +16,14 @@ public class Base_stats : MonoBehaviour
     public static int B_HP_M;
     void Awake()
     {
-        P_HP = 100;
+        P_HP = 200;
         P_ATK = 15;
         E_HP = 50;
         E_ATK = 10;
         E_HP_M = 1;
         E_ATK_M = 1;
         B_ATK = 15;
-        B_HP = 400;
+        B_HP = 4;
         B_HP_M = 1;
         B_ATK_M = 1;
     }

@@ -16,5 +16,4 @@ public class HeartsCounter : MonoBehaviour
     {
         heartcounter.text = "" + hearts;
     }
-
 }

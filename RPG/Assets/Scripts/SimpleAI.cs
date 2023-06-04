@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static EnemyTrigger;
 
 public class SimpleAI : MonoBehaviour
 {
@@ -25,12 +24,12 @@ public class SimpleAI : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Bullet"))
         {
-            return;
+            triggered = true;
         }
-        triggered = true;
     }
+
     void Update()
     {
         if (triggered == true)
