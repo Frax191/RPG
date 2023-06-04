@@ -34,4 +34,10 @@ public class CloseDifficulty : MonoBehaviour
         animator.SetBool("DifficultyShow", false);
         animator2.SetBool("DoorOpen", false);
     }
+    public void HideCovers()
+    {
+        Cover1.SetActive(true);
+        Cover2.SetActive(true);
+        Cover3.SetActive(true);
+    }
 }

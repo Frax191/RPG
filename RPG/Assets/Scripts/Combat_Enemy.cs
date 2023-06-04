@@ -26,7 +26,7 @@ public class Combat_Enemy : MonoBehaviour
         GetHit.Play();
         if (Health <= 0)
         {
-            hearts += 30 * B_HP_M;
+            hearts += 10 * B_HP_M;
             Invoke("DestroyEnemy", .05f);
         }
     }

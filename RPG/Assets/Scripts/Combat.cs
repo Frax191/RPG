@@ -20,7 +20,7 @@ public class Combat : MonoBehaviour
         AudioSource bossmusic = combatBossScript.bossmusic;
     }
 
-    void Stats()
+    public void Stats()
     {
         Health = P_HP;
         Attack = P_ATK;

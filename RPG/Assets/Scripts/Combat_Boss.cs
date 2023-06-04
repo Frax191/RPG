@@ -20,10 +20,7 @@ public class Combat_Boss : MonoBehaviour
 
     void Start()
     {
-        openthedoor = false;
-        triggered = false;
         musicPlayer = musicPlayerObject.GetComponent<MusicPlayer>();
-        bossactive = false;
         Stats();
     }
 
@@ -43,7 +40,7 @@ public class Combat_Boss : MonoBehaviour
             openthedoor = true;
             transform.position = new Vector2(1000f, 1000f);
             defeated = true;
-            hearts += 30 * B_HP_M;
+            hearts += 50 * B_HP_M;
             Invoke("Stop", 1f); 
         }
     }

@@ -13,6 +13,7 @@ public class Door1 : MonoBehaviour
     public Animator animator;
     public TextMeshProUGUI texttochange;
     public static bool door1;
+    public GameObject otherGameObject;
     void Start()
     {
         door1 = false;
@@ -21,6 +22,8 @@ public class Door1 : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
             return;
+        CloseDifficulty closeDifficultyScript = otherGameObject.GetComponent<CloseDifficulty>();
+        closeDifficultyScript.HideCovers();
         door1 = false;
         door2 = false;
         door3 = false;

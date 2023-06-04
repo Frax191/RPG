@@ -115,9 +115,10 @@ public class Unlocking : MonoBehaviour
 
     public void ButtonOne()
     {
-        E_HP_M = 1;
-        E_ATK_M = 1;
-        B_ATK_M = 1;
+        E_HP = 75;
+        E_ATK = 20;
+        B_ATK = 30;
+        B_HP = 400;
         B_HP_M = 1;
         click.Play();
         if (door1 == true && hearts >= 10 && door1_1 == false)
@@ -152,9 +153,10 @@ public class Unlocking : MonoBehaviour
 
     public void ButtonTwo()
     {
-        E_HP_M = 2;
-        E_ATK_M = 2;
-        B_ATK_M = 2;
+        E_HP = 150;
+        E_ATK = 40;
+        B_ATK = 60;
+        B_HP = 800;
         B_HP_M = 2;
         click.Play();
         if (door1 == true && hearts >= 50 && door1_2 == false)
@@ -188,9 +190,10 @@ public class Unlocking : MonoBehaviour
 
     public void ButtonThree()
     {
-        E_HP_M = 3;
-        E_ATK_M = 3;
-        B_ATK_M = 3;
+        E_HP = 225;
+        E_ATK = 60;
+        B_ATK = 90;
+        B_HP = 1200;
         B_HP_M = 3;
         click.Play();
         if (door1 == true && hearts >= 250 && door1_3 == false)
