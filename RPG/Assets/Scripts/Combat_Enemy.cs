@@ -22,10 +22,12 @@ public class Combat_Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        //take damage
         Health -= damage;
         GetHit.Play();
         if (Health <= 0)
         {
+            // add coins after death
             hearts += 10 * B_HP_M;
             Invoke("DestroyEnemy", .05f);
         }

@@ -10,6 +10,9 @@ using TMPro;
 
 public class YesorNo : MonoBehaviour
 {
+    public static bool door1e;
+    public static bool door2e;
+    public static bool door3e;
     public Animator animator;
     public Animator animator2;
     public GameObject player;
@@ -32,6 +35,7 @@ public class YesorNo : MonoBehaviour
             MovementScript movementScript = player.GetComponent<MovementScript>();
             movementScript.enabled = true;
             door1 = false;
+            door1e = true;
             enemySpawner.SpawnEnemies();
             bossSpawner.SpawnEnemy();
         }
@@ -43,6 +47,7 @@ public class YesorNo : MonoBehaviour
             MovementScript movementScript = player.GetComponent<MovementScript>();
             movementScript.enabled = true;
             door2 = false;
+            door2e = true;
         }
         if (door3 == true)
         {
@@ -52,6 +57,7 @@ public class YesorNo : MonoBehaviour
             MovementScript movementScript = player.GetComponent<MovementScript>();
             movementScript.enabled = true;
             door3 = false;
+            door3e = true;
         }
     }
 

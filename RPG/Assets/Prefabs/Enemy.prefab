@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GetHit: {fileID: 2202355334595476967}
+  healthBarPrefab: {fileID: 298267091161085185, guid: fe84a1dd3bb960249ab0bc5ba3f6cf8d, type: 3}
 --- !u!82 &2202355334595476967
 AudioSource:
   m_ObjectHideFlags: 0

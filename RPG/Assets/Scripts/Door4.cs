@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Combat_Boss;
+using static YesorNo;
 
 public class Door4 : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Door4 : MonoBehaviour
         {
             Player.transform.position = new Vector2(0f, 1f);
             openthedoor = false;
+            door1e = false;
+            door2e = false;
+            door3e = false;
         }
     }
 }

@@ -15,6 +15,7 @@ public class Shopping : MonoBehaviour
     private int hpcost;
     private int atkcost;
     public AudioSource click;
+    public GameObject playerc;  
     void Start()
     {
         hpcost = 10;
@@ -29,6 +30,8 @@ public class Shopping : MonoBehaviour
             hearts -= hpcost;
             hpcost++;
             hpbuy.text = "Cost " + hpcost;
+            Combat combatScript = playerc.GetComponent<Combat>();
+            combatScript.Stats();
         }
     }
     public void BuyATK()
@@ -40,6 +43,8 @@ public class Shopping : MonoBehaviour
             hearts -= atkcost;
             atkcost++;
             atkbuy.text = "Cost " + atkcost;
+            Combat combatScript = playerc.GetComponent<Combat>();
+            combatScript.Stats();
         }
     }
     void Update()

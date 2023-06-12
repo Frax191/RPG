@@ -47,7 +47,7 @@ public class Unlocking : MonoBehaviour
         if (door1 == true)
         {
             Text1.text = "COST 10";
-            Text2.text = "COST 50";
+            Text2.text = "COST 150";
             Text3.text = "COST 250";
         }
         if (door2 == true)
@@ -159,7 +159,7 @@ public class Unlocking : MonoBehaviour
         B_HP = 600;
         B_HP_M = 2;
         click.Play();
-        if (door1 == true && hearts >= 50 && door1_2 == false)
+        if (door1 == true && hearts >= 150 && door1_2 == false)
         {
             hearts -= 150;
             door1_2 = true;
@@ -170,7 +170,7 @@ public class Unlocking : MonoBehaviour
         }
         if (door2 == true && hearts >= 200 && door2_2 == false)
         {
-            hearts -= 300;
+            hearts -= 200;
             door2_2 = true;
         }
         else if (door2 == true && door2_2 == true)
@@ -198,7 +198,7 @@ public class Unlocking : MonoBehaviour
         click.Play();
         if (door1 == true && hearts >= 250 && door1_3 == false)
         {
-            hearts -= 200;
+            hearts -= 250;
             door1_3 = true;
         }
         else if (door1 == true && door1_3 == true)
