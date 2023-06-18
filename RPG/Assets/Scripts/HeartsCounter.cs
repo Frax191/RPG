@@ -10,7 +10,7 @@ public class HeartsCounter : MonoBehaviour
     public TextMeshProUGUI heartcounter;
     void Start()
     {
-        hearts = 10;
+        hearts = 1000;
     }
     void Update()
     {

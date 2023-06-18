@@ -41,7 +41,7 @@ public class YesorNo : MonoBehaviour
         }
         if (door2 == true)
         {
-            player.transform.position = new Vector2(-0.5f, 9.5f);
+            player.transform.position = new Vector2(-26f, -48f);
             animator.SetBool("DoorOpen", false);
             animator2.SetBool("DifficultyShow", false);
             MovementScript movementScript = player.GetComponent<MovementScript>();

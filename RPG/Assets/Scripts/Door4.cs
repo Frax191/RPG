@@ -6,6 +6,7 @@ using static YesorNo;
 
 public class Door4 : MonoBehaviour
 {
+
     public GameObject Player;
     void Update()
     {
@@ -24,6 +25,8 @@ public class Door4 : MonoBehaviour
         {
             Player.transform.position = new Vector2(0f, 1f);
             openthedoor = false;
+            Combat combatScript = Player.GetComponent<Combat>();
+            combatScript.Stats();
             door1e = false;
             door2e = false;
             door3e = false;

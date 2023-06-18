@@ -12,6 +12,10 @@ public class CollectSkull : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Bullet"))
+        {
+            return;
+        }
         transform.position = new Vector2(1000, 1000);
         skulls = true;
         pickup.Play();

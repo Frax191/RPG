@@ -55,7 +55,6 @@ public class Combat_Boss : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(animator.GetBool("Showbb"));
         if (bossactive == true && triggered == false)
         {
             musicPlayer.TogglePause();

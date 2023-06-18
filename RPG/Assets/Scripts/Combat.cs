@@ -13,23 +13,20 @@ public class Combat : MonoBehaviour
     private MusicPlayer musicPlayer;
     public GameObject musicPlayerObject; // Declare the musicPlayerObject variable
     public Combat_Boss combatBossScript;
+    public Animator animator;
 
     public void Start()
     {
-        slider.value = 1;
         died = false;
         Stats();
         musicPlayer = musicPlayerObject.GetComponent<MusicPlayer>();
         AudioSource bossmusic = combatBossScript.bossmusic;
     }
-    /*void Update()
-    {
-        Debug.Log(slider.value);
-    }*/
     public void Stats()
     {
         Health = P_HP;
         Attack = P_ATK;
+        slider.value = 1;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +41,7 @@ public class Combat : MonoBehaviour
                 slider.value = 1;
                 died = true;
                 transform.position = new Vector2(0, 1);
+                 animator.SetBool("Showbb", false);
             }
         }
         else if (collision.gameObject.CompareTag("Boss"))
@@ -56,6 +54,7 @@ public class Combat : MonoBehaviour
                 slider.value = 1;
                 died = true;
                 transform.position = new Vector2(0, 1);
+                animator.SetBool("Showbb", false);
             }
         }
     }
