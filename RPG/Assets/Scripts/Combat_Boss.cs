@@ -17,6 +17,7 @@ public class Combat_Boss : MonoBehaviour
     private int Attack;
     public AudioSource GetHit;
     public AudioSource bossmusic;
+    public AudioClip[] bossmusica;
     private bool bossactive;
     private MusicPlayer musicPlayer;
     public static bool openthedoor;
@@ -71,6 +72,7 @@ public class Combat_Boss : MonoBehaviour
 
     public void PlayBossMusic()
     {
+        bossmusic.clip = bossmusica[Random.Range(0, bossmusica.Length)];
         bossmusic.Play();
     }
 

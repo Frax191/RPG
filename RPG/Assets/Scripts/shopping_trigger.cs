@@ -9,6 +9,7 @@ public class shopping_trigger : MonoBehaviour
     public GameObject player;
     void Start()
     {
+        //       transform.position = new Vector2(1000f, 1000f);
         transform.position = new Vector2(1000f, 1000f);
     }
     void Update()

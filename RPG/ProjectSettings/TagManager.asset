@@ -7,6 +7,9 @@ TagManager:
   - Bullet
   - Enemy
   - Boss
+  - Chest1
+  - Chest2
+  - Chest3
   layers:
   - Default
   - TransparentFX

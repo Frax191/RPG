@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Base_stats;
 using UnityEngine.UI;
+using static YesorNo;
 
 public class Combat : MonoBehaviour
 {
@@ -41,7 +42,10 @@ public class Combat : MonoBehaviour
                 slider.value = 1;
                 died = true;
                 transform.position = new Vector2(0, 1);
-                 animator.SetBool("Showbb", false);
+                animator.SetBool("Showbb", false);
+                door1e = false;
+                door2e = false;
+                door3e = false;
             }
         }
         else if (collision.gameObject.CompareTag("Boss"))
@@ -55,6 +59,9 @@ public class Combat : MonoBehaviour
                 died = true;
                 transform.position = new Vector2(0, 1);
                 animator.SetBool("Showbb", false);
+                door1e = false;
+                door2e = false;
+                door3e = false;
             }
         }
     }

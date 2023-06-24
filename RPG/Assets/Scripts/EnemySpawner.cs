@@ -1,9 +1,12 @@
 using UnityEngine;
+using static YesorNo;
 
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public Transform[] waypoints;
+    public Transform[] waypoints2;
+    public Transform[] waypoints3;
 
     private GameObject[] spawnedEnemies;
 
@@ -11,13 +14,15 @@ public class EnemySpawner : MonoBehaviour
     {
         int numberOfEnemies = 10;
 
+        Transform[] selectedWaypoints = door1e ? waypoints : (door2e ? waypoints2 : (door3e ? waypoints3 : waypoints));
+
         // Shuffle the waypoints array
-        for (int i = 0; i < waypoints.Length - 1; i++)
+        for (int i = 0; i < selectedWaypoints.Length - 1; i++)
         {
-            int randomIndex = Random.Range(i, waypoints.Length);
-            Transform temp = waypoints[i];
-            waypoints[i] = waypoints[randomIndex];
-            waypoints[randomIndex] = temp;
+            int randomIndex = Random.Range(i, selectedWaypoints.Length);
+            Transform temp = selectedWaypoints[i];
+            selectedWaypoints[i] = selectedWaypoints[randomIndex];
+            selectedWaypoints[randomIndex] = temp;
         }
 
         // Destroy existing enemies
@@ -27,9 +32,9 @@ public class EnemySpawner : MonoBehaviour
         spawnedEnemies = new GameObject[numberOfEnemies];
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            if (waypoints[i] != null)
+            if (selectedWaypoints[i] != null)
             {
-                GameObject enemy = Instantiate(enemyPrefab, waypoints[i].position, Quaternion.identity);
+                GameObject enemy = Instantiate(enemyPrefab, selectedWaypoints[i].position, Quaternion.identity);
                 enemy.name = "Enemy " + (i + 1);
                 spawnedEnemies[i] = enemy;
             }

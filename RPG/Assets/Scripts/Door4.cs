@@ -12,7 +12,18 @@ public class Door4 : MonoBehaviour
     {
         if (openthedoor == true)
         {
-            transform.position = new Vector2(-93f, -46f);
+            if (door1e == true)
+            {
+                transform.position = new Vector2(-93f, -46f);
+            }
+            if (door2e == true)
+            {
+                transform.position = new Vector2(-26f, -32f);
+            }
+            if (door3e == true)
+            {
+                transform.position = new Vector2(-52f, -106f);
+            }
         }
         if (openthedoor == false)
         {
