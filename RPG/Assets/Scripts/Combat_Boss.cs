@@ -50,7 +50,7 @@ public class Combat_Boss : MonoBehaviour
             animator.SetBool("Showbb", false);
             defeated = true;
             hearts += 50 * B_HP_M;
-            Invoke("Stop", 1f); 
+            Invoke("Stop", 0.05f); 
         }
     }
 

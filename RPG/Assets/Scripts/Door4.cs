@@ -22,7 +22,7 @@ public class Door4 : MonoBehaviour
             }
             if (door3e == true)
             {
-                transform.position = new Vector2(-52f, -106f);
+                transform.position = new Vector2(-85f, 0f);
             }
         }
         if (openthedoor == false)

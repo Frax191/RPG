@@ -63,9 +63,9 @@ public class YesorNo : MonoBehaviour
             Debug.Log("Frax");
             bossSpawner.SpawnEnemy();
         }
-        if (door3 == true)
+        if (door3 == true)  
         {
-            player.transform.position = new Vector2(2.5f, 9.5f);
+            player.transform.position = new Vector2(-96f, -8f);
             animator.SetBool("DoorOpen", false);
             animator2.SetBool("DifficultyShow", false);
             MovementScript movementScript = player.GetComponent<MovementScript>();
