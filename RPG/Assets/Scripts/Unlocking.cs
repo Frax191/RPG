@@ -1,4 +1,4 @@
-        using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,7 @@ using static Door2;
 using static Door3;
 using static HeartsCounter;
 using static Base_stats;
+using static YesorNo;
 
 public class Unlocking : MonoBehaviour
 {
@@ -28,9 +29,11 @@ public class Unlocking : MonoBehaviour
     public Text Text2;
     public Text Text3;
     public AudioSource click;
+    public static int cdiff;
 
     void Start()
     {
+        cdiff = 0;
         door1_1 = false;
         door1_2 = false;
         door1_3 = false;
@@ -120,6 +123,8 @@ public class Unlocking : MonoBehaviour
         B_ATK = 20;
         B_HP = 300;
         B_HP_M = 1;
+        cdiff = 1;
+        EBS();
         click.Play();
         if (door1 == true && hearts >= 10 && door1_1 == false)
         {
@@ -158,6 +163,8 @@ public class Unlocking : MonoBehaviour
         B_ATK = 40;
         B_HP = 600;
         B_HP_M = 2;
+        cdiff = 2;
+        EBS();
         click.Play();
         if (door1 == true && hearts >= 150 && door1_2 == false)
         {
@@ -195,6 +202,8 @@ public class Unlocking : MonoBehaviour
         B_ATK = 60;
         B_HP = 900;
         B_HP_M = 3;
+        cdiff = 3;
+        EBS();
         click.Play();
         if (door1 == true && hearts >= 250 && door1_3 == false)
         {
@@ -223,5 +232,13 @@ public class Unlocking : MonoBehaviour
         {
             animator.SetBool("DoorOpen", true);
         }
+    }
+    void EBS()
+    {
+        int currentdoor = door1e ? 1 : (door2e ? 2 : (door3e ? 3 : 1));
+        E_HP = E_HP * currentdoor;
+        E_ATK = E_ATK * currentdoor;
+        B_HP = B_HP * currentdoor;
+        B_ATK = B_ATK * currentdoor;
     }
 }

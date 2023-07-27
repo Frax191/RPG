@@ -4,6 +4,7 @@ using static YesorNo;
 public class BossSpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public Sprite[] bossSprites;
     public Transform waypoint;
     public Transform waypoint1;
     public Transform waypoint2;
@@ -12,23 +13,22 @@ public class BossSpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        Transform selectedWaypoint = door1e ? waypoint : (door2e ? waypoint1 : (door3e ? waypoint2 : waypoint));
         // Destroy existing enemy
         DestroyExistingEnemy();
 
-        // Spawn new enemy at the specified waypoint
-        if (waypoint != null & door1e == true)
+        if (selectedWaypoint != null)
         {
-            spawnedEnemy = Instantiate(enemyPrefab, waypoint.position, Quaternion.identity);
-            spawnedEnemy.name = "Boss";
-        }
-        if (waypoint != null & door2e == true)
-        {
-            spawnedEnemy = Instantiate(enemyPrefab, waypoint1.position, Quaternion.identity);
-            spawnedEnemy.name = "Boss";
-        }
-        if (waypoint != null & door3e == true)
-        {
-            spawnedEnemy = Instantiate(enemyPrefab, waypoint2.position, Quaternion.identity);
+            spawnedEnemy = Instantiate(enemyPrefab, selectedWaypoint.position, Quaternion.identity);
+
+            // Randomly select a sprite from the bossSprites array
+            int randomSpriteIndex = Random.Range(0, bossSprites.Length);
+            SpriteRenderer spriteRenderer = spawnedEnemy.GetComponent<SpriteRenderer>();
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = bossSprites[randomSpriteIndex];
+            }
+
             spawnedEnemy.name = "Boss";
         }
     }

@@ -56,11 +56,8 @@ public class YesorNo : MonoBehaviour
             movementScript.enabled = true;
             door2 = false;
             door2e = true;
-            Debug.Log("Frax");
             Reset();
-            Debug.Log("Frax");
             enemySpawner.SpawnEnemies();
-            Debug.Log("Frax");
             bossSpawner.SpawnEnemy();
         }
         if (door3 == true)  

@@ -14,7 +14,7 @@ public class Base_stats : MonoBehaviour
     void Awake()
     {
         P_HP = 200;
-        P_ATK = 15;
+        P_ATK = 1500;
         E_HP = 50;
         E_ATK = 10;
         B_ATK = 15;

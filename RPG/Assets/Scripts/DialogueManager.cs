@@ -7,6 +7,8 @@ using static SageScript;
 using static npcDialogue;
 using static HeartsCounter;
 using static Combat_Boss;
+using static Barrier;
+using static Door4;
 
 
 public class DialogueManager : MonoBehaviour
@@ -22,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 	private bool active;
 	public static bool StopTriggerEnemy;
 	public static bool triggershop;
+	public static bool talkto;
+	public static bool talkto2;
 
 	private Queue<string> sentences;
 
@@ -115,6 +119,14 @@ public class DialogueManager : MonoBehaviour
 		if (defeated == true & cattalk == false)
         {
 			triggershop = true;
+        }
+		if (cattalk == false & changedialogue == true)
+        {
+			talkto = true;
+        }
+		if (beatgame == true & cattalk == false)
+        {
+			talkto2 = true;
         }
 	}
 	void getkeystrue()
