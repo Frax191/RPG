@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using static Door1;
 using static Door2;
 using static Door3;
+using static door5;
 
 public class Door3 : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class Door3 : MonoBehaviour
         door1 = false;
         door2 = false;
         door3 = false;
+        door4 = true;
         MovementScript movementScript = player.GetComponent<MovementScript>();
         movementScript.enabled = false;
         texttochange.text = "Do you wish to go to the Demon Den";

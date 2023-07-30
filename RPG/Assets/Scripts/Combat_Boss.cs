@@ -6,6 +6,7 @@ using static Combat;
 using static HeartsCounter;
 using TMPro;
 using UnityEngine.UI;
+using static YesorNo;
 
 public class Combat_Boss : MonoBehaviour
 {
@@ -80,7 +81,18 @@ public class Combat_Boss : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Bullet") && bossactive == false)
         {
-            bossname.text = "Unholy Spirit of the Grimghoul";
+            if (door1e)
+            {
+                bossname.text = "Unholy Spirit of the Grimghoul";
+            }
+            if (door2e)
+            {
+                bossname.text = "Evil Orc Boogeyman incarnation";
+            }
+            if (door3e)
+            {
+                bossname.text = "Demonic Beast of the underground";
+            }
             animator.SetBool("Showbb", true);
             bossactive = true;
         }

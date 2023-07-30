@@ -8,14 +8,22 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] waypoints;
     public Transform[] waypoints2;
     public Transform[] waypoints3;
-
+    public Transform[] waypoints4;
+    private int numberOfEnemies;
     private GameObject[] spawnedEnemies;
 
     public void SpawnEnemies()
     {
-        int numberOfEnemies = 10;
+        if (door4e == true)
+        {
+            numberOfEnemies = 5;
+        }
+        else
+        {
+            numberOfEnemies = 10;
+        }
 
-        Transform[] selectedWaypoints = door1e ? waypoints : (door2e ? waypoints2 : (door3e ? waypoints3 : waypoints));
+        Transform[] selectedWaypoints = door1e ? waypoints : (door2e ? waypoints2 : (door3e ? waypoints3 : (door4e ? waypoints4 : waypoints)));
 
         // Shuffle the waypoints array
         for (int i = 0; i < selectedWaypoints.Length - 1; i++)

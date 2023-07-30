@@ -11,12 +11,14 @@ using static Barrier;
 using static ShardScript1;
 using static ShardScript2;
 using static ShardScript3;
+using static door5;
 
 public class YesorNo : MonoBehaviour
 {
     public static bool door1e;
     public static bool door2e;
     public static bool door3e;
+    public static bool door4e;
     public Animator animator;
     public Animator animator2;
     public GameObject player;
@@ -72,12 +74,26 @@ public class YesorNo : MonoBehaviour
             enemySpawner.SpawnEnemies();
             bossSpawner.SpawnEnemy();
         }
+        if (door4 == true)
+        {
+            player.transform.position = new Vector2(-61f, -22f);
+            animator.SetBool("DoorOpen", false);
+            MovementScript movementScript = player.GetComponent<MovementScript>();
+            movementScript.enabled = true;
+            door4 = false;
+            door4e = true;
+        }
     }
 
     public void No()
     {
         click.Play();
         animator.SetBool("DoorOpen", false);
+        if (animator.GetBool("DifficultyShow"))
+        {
+            MovementScript movementScript = player.GetComponent<MovementScript>();
+            movementScript.enabled = true;
+        }
     }
     public void Reset()
     {

@@ -9,12 +9,14 @@ public class ShootingScript : MonoBehaviour
     public Animator Anim1;
     public Animator Anim2;
     public Animator Anim3;
+    public Animator Anim4;
+    public Animator Anim5;
 
     private float nextShootTime;
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && Time.time >= nextShootTime && Anim1.GetBool("IsOpen") == false && Anim2.GetBool("DifficultyShow") == false && Anim3.GetBool("shop") == false)
+        if (Input.GetMouseButton(0) && Time.time >= nextShootTime && Anim1.GetBool("IsOpen") == false && Anim2.GetBool("DifficultyShow") == false && Anim3.GetBool("shop") == false && Anim4.GetBool("DoorOpen") == false && Anim5.GetBool("FloorSelector") == false)
         {
             Shoot();
             Shooting.Play();

@@ -10,19 +10,23 @@ public class RoomNum : MonoBehaviour
     public GameObject SecondNum;
     public static int room;
     public Sprite[] numbers;
+    public static int beaten;
     void Start()
     {
         room = 1;
-
+        beaten = 0;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             Player.transform.position = new Vector2(-38.2f, -17f);
+            if (room == 25 || room == 50 || room == 75)
+            {
+                beaten++;
+            }
             room++;
             UpdateRoom();
-            Debug.Log(room);
         }
     }
     public void UpdateRoom()
@@ -34,16 +38,11 @@ public class RoomNum : MonoBehaviour
         // accesses SpriteRenderer of gameobjects which hold the position for the numbers
         SpriteRenderer FirstSprite = FirstNum.GetComponent<SpriteRenderer>();
         SpriteRenderer SecondSprite = SecondNum.GetComponent<SpriteRenderer>();
-        // updates the sprites
-        if (room >= 10)
+        // updates the sprites 
+        if (room < 100)
         {
             FirstSprite.sprite = numbers[First];
             SecondSprite.sprite = numbers[Second];
-        }
-        if (room < 10)
-        {
-            FirstSprite.sprite = numbers[0];
-            SecondSprite.sprite = numbers[room];
         }
     }
 }
